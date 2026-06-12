@@ -243,7 +243,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-logo {
-    max-height: 80px;
+    height: 120px; /* 3x larger */
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-center p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.developer-credit {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    line-height: 1.5;
+}
+
+.developer-email {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.developer-email:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
 }
 
 .nav-links {
@@ -745,33 +774,7 @@ footer {
     color: var(--light-text);
 }
 
-.footer-center p {
-    font-size: 0.8rem;
-    color: var(--light-text);
-}
 
-.footer-right {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-right a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8rem;
-    transition: all 0.3s ease;
-}
-
-.footer-right a:hover {
-    background-color: var(--accent-color);
-    color: #fff;
-    border-color: var(--accent-color);
-}
 
 /* Modal / Lightbox */
 .modal {

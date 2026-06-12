@@ -25,38 +25,38 @@ const heroData = {
     mobile: []
 };
 
-// Read contents of Landing/
-const categories = fs.readdirSync(LANDING_DIR, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name);
+const GALLERY_CATEGORIES = ['Baby', 'Engagement', 'Haldhi', 'PreWedding', 'Reception', 'Wedding'];
 
-categories.forEach(category => {
-    const categoryPath = path.join(LANDING_DIR, category);
+// Handle Hero specifically (inside Landing/)
+const heroCategoryPath = path.join(LANDING_DIR, 'Hero');
+if (fs.existsSync(heroCategoryPath)) {
+    const heroFiles = fs.readdirSync(heroCategoryPath, { withFileTypes: true });
+    heroFiles.forEach(file => {
+        if (file.isFile() && isImage(file.name)) {
+            heroData.desktop.push(file.name);
+        }
+    });
     
-    // Handle Hero specifically
-    if (category.toLowerCase() === 'hero') {
-        // Read desktop hero images
-        const heroFiles = fs.readdirSync(categoryPath, { withFileTypes: true });
-        heroFiles.forEach(file => {
+    // Check for Mobile subfolder
+    const mobilePath = path.join(heroCategoryPath, 'Mobile');
+    if (fs.existsSync(mobilePath)) {
+        const mobileFiles = fs.readdirSync(mobilePath, { withFileTypes: true });
+        mobileFiles.forEach(file => {
             if (file.isFile() && isImage(file.name)) {
-                heroData.desktop.push(file.name);
+                heroData.mobile.push(file.name);
             }
         });
-        
-        // Check for Mobile subfolder
-        const mobilePath = path.join(categoryPath, 'Mobile');
-        if (fs.existsSync(mobilePath)) {
-            const mobileFiles = fs.readdirSync(mobilePath, { withFileTypes: true });
-            mobileFiles.forEach(file => {
-                if (file.isFile() && isImage(file.name)) {
-                    heroData.mobile.push(file.name);
-                }
-            });
-        }
-        return; // Don't add Hero to gallery.json
+    }
+}
+
+// Handle all regular categories for gallery.json (in root directory)
+GALLERY_CATEGORIES.forEach(category => {
+    const categoryPath = path.join(__dirname, '..', category);
+    if (!fs.existsSync(categoryPath)) {
+        galleryData[category] = [];
+        return;
     }
     
-    // Handle all other regular categories for gallery.json
     const files = fs.readdirSync(categoryPath, { withFileTypes: true });
     const images = files
         .filter(file => file.isFile() && isImage(file.name))

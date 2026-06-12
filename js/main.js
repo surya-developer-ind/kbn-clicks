@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
 
                 const img = document.createElement('img');
-                img.src = `Landing/${category}/${imgFile}`;
+                img.src = `${category}/${imgFile}`;
                 img.alt = `${category} photo ${index + 1}`;
                 img.loading = 'lazy';
                 

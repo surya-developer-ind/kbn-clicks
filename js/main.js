@@ -40,7 +40,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Hide Preloader once first image is loaded (with minimum delay to read text)
         const preloader = document.getElementById('preloader');
         if (preloader) {
-            const hidePreloader = () => setTimeout(() => preloader.classList.add('loaded'), 2500);
+            const hidePreloader = () => {
+                setTimeout(() => preloader.classList.add('loaded'), 2500);
+                
+                // Start slider only AFTER the first image is fully loaded
+                if (landingImages.length > 1) {
+                    setInterval(() => {
+                        const slides = heroSlider.querySelectorAll('.slider-img');
+                        slides[currentSlide].classList.remove('active');
+                        currentSlide = (currentSlide + 1) % slides.length;
+                        slides[currentSlide].classList.add('active');
+                    }, 5000);
+                }
+            };
 
             const firstImg = heroSlider.querySelector('img.active');
             if (firstImg) {
@@ -49,21 +61,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 } else {
                     firstImg.addEventListener('load', hidePreloader);
                     // Fallback if image fails or takes too long
-                    setTimeout(() => preloader.classList.add('loaded'), 6000);
+                    setTimeout(hidePreloader, 10000); // Increased fallback to 10s for large files
                 }
             } else {
                 hidePreloader();
             }
-        }
-
-        // Setup interval to change photo every 5 seconds
-        if (landingImages.length > 1) {
-            setInterval(() => {
-                const slides = heroSlider.querySelectorAll('.slider-img');
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }, 5000);
         }
     }
     // 1. Mobile Menu Toggle

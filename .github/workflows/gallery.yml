@@ -28,6 +28,13 @@ jobs:
             echo "skip=false" >> $GITHUB_OUTPUT
           fi
           
+      - name: Optimize large images
+        if: steps.check-author.outputs.skip != 'true'
+        run: |
+          echo "Compressing images larger than 2MB..."
+          find Landing/ -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png \) -size +2M -exec mogrify -resize "1920x1920>" -quality 85 {} +
+          echo "Image optimization complete."
+
       - name: Setup Node.js
         if: steps.check-author.outputs.skip != 'true'
         uses: actions/setup-node@v3
@@ -43,12 +50,12 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add gallery.json hero.json
+          git add Landing/ gallery.json hero.json
           
           # Only commit if there are changes
           if git diff --staged --quiet; then
-            echo "No changes to gallery.json or hero.json"
+            echo "No changes to commit"
           else
-            git commit -m "chore: auto-update gallery and hero json [skip ci]"
+            git commit -m "chore: auto-optimize images and update json [skip ci]"
             git push
           fi

@@ -40,13 +40,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Hide Preloader once first image is loaded (with minimum delay to read text)
         const preloader = document.getElementById('preloader');
         if (preloader) {
+            let sliderStarted = false;
+            
             const hidePreloader = () => {
                 setTimeout(() => preloader.classList.add('loaded'), 2500);
                 
-                // Start slider only AFTER the first image is fully loaded
-                if (landingImages.length > 1) {
+                // Start slider only AFTER the first image is fully loaded, and only do it once
+                if (landingImages.length > 1 && !sliderStarted) {
+                    sliderStarted = true;
                     setInterval(() => {
                         const slides = heroSlider.querySelectorAll('.slider-img');
+                        if (slides.length === 0) return;
                         slides[currentSlide].classList.remove('active');
                         currentSlide = (currentSlide + 1) % slides.length;
                         slides[currentSlide].classList.add('active');

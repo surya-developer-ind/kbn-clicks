@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBN By Kumar - Luxury Wedding Photography</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <img src="Logo/logo.png" alt="KBN By Kumar Logo" class="brand-logo">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="active">HOME</a></li>
+                <li><a href="#experiences">STORIES</a></li>
+                <li><a href="#">FILMS</a></li>
+                <li><a href="#testimonial">ABOUT</a></li>
+                <li><a href="#experiences">EXPERIENCE</a></li>
+                <li><a href="#footer">CONTACT</a></li>
+            </ul>
+            
+            <div class="nav-right">
+                <a href="profile.html" class="btn btn-outline">BOOK YOUR DATE</a>
+                <button class="menu-btn" id="menuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#experiences">STORIES</a></li>
+            <li><a href="#">FILMS</a></li>
+            <li><a href="#testimonial">ABOUT</a></li>
+            <li><a href="#experiences">EXPERIENCE</a></li>
+            <li><a href="#footer">CONTACT</a></li>
+            <li><a href="profile.html" class="mobile-book-btn">BOOK YOUR DATE</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-left reveal">
+            <span class="small-label">KBN BY KUMAR</span>
+            <h1 class="hero-heading">Every Moment.<br>Beautifully Captured.</h1>
+            <p class="hero-script">Timelessly Yours.</p>
+            <div class="hero-line"></div>
+            <p class="hero-desc">From the first promise to every chapter that follows, we capture your story with heart and artistry.</p>
+            <a href="#experiences" class="btn btn-solid">EXPLORE EXPERIENCES <span class="arrow">►</span></a>
+        </div>
+        
+        <div class="hero-right">
+            <div class="hero-img-wrapper parallax" id="heroSlider">
+                <!-- Images will be injected dynamically from Landing/Hero -->
+            </div>
+            <div class="petals-container" id="petals"></div>
+            
+            <div class="scroll-indicator">
+                <div class="line"></div>
+                <div class="numbers">
+                    <span>01</span>
+                    <span>02</span>
+                    <span>03</span>
+                    <span>04</span>
+                    <span>05</span>
+                    <span>06</span>
+                    <span>07</span>
+                </div>
+            </div>
+            
+            <button class="pause-btn">||</button>
+        </div>
+    </header>
+
+    <!-- Experience Categories -->
+    <section id="experiences" class="experiences">
+        <div class="cards-grid">
+            
+            <!-- Card 1 -->
+            <div class="card reveal category-card" data-category="Engagement">
+                <div class="card-img-wrapper">
+                    <img src="Landing/Pre-wedding.png" alt="Engagement" loading="lazy">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <div class="card-number">01</div>
+                    <div class="card-icon">💍</div>
+                    <h3>Engagement</h3>
+                    <p>The beginning of forever.</p>
+                    <a href="#" class="view-gallery">VIEW GALLERY <span>→</span></a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card reveal category-card" data-category="Haldhi" style="transition-delay: 0.1s;">
+                <div class="card-img-wrapper">
+                    <img src="Landing/Haldhi.png" alt="Haldi" loading="lazy">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <div class="card-number">02</div>
+                    <div class="card-icon">🏵️</div>
+                    <h3>Haldi</h3>
+                    <p>A burst of color, laughter & love.</p>
+                    <a href="#" class="view-gallery">VIEW GALLERY <span>→</span></a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card reveal category-card" data-category="PreWedding" style="transition-delay: 0.2s;">
+                <div class="card-img-wrapper">
+                    <img src="Landing/Pre-wedding.png" alt="Pre-Wedding" loading="lazy">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <div class="card-number">03</div>
+                    <div class="card-icon">📷</div>
+                    <h3>Pre-Wedding<br>Shoots</h3>
+                    <p>Your story, your style, your moments.</p>
+                    <a href="#" class="view-gallery">VIEW GALLERY <span>→</span></a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card reveal category-card" data-category="Wedding" style="transition-delay: 0.3s;">
+                <div class="card-img-wrapper">
+                    <img src="Landing/Wedding.JPG" alt="Wedding" loading="lazy">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <div class="card-number">04</div>
+                    <div class="card-icon">🏛️</div>
+                    <h3>Wedding</h3>
+                    <p>Where two souls become one.</p>
+                    <a href="#" class="view-gallery">VIEW GALLERY <span>→</span></a>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card reveal category-card" data-category="Reception" style="transition-delay: 0.1s;">
+                <div class="card-img-wrapper">
+                    <img src="Landing/Reception.png" alt="Reception" loading="lazy">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <div class="card-number">05</div>
+                    <div class="card-icon">🥂</div>
+                    <h3>Reception</h3>
+                    <p>A night to celebrate love and togetherness.</p>
+                    <a href="#" class="view-gallery">VIEW GALLERY <span>→</span></a>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card reveal category-card" data-category="Baby" style="transition-delay: 0.2s;">
+                <div class="card-img-wrapper">
+                    <img src="Landing/baby.png" alt="Baby Shoots" loading="lazy">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <div class="card-number">06</div>
+                    <div class="card-icon">👶</div>
+                    <h3>Baby Shoots</h3>
+                    <p>Tiny smiles. big memories.</p>
+                    <a href="#" class="view-gallery">VIEW GALLERY <span>→</span></a>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="card reveal category-card" data-category="PreWedding" style="transition-delay: 0.3s;">
+                <div class="card-img-wrapper">
+                    <img src="Landing/Wedding.JPG" alt="And More" loading="lazy">
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <div class="card-number">07</div>
+                    <div class="card-icon">🌿</div>
+                    <h3>And More</h3>
+                    <p>Anniversaries, maternity, family & more beautiful stories.</p>
+                    <a href="#" class="view-gallery">VIEW GALLERY <span>→</span></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section id="statistics" class="statistics reveal">
+        <div class="stat-item">
+            <div class="stat-icon">📸</div>
+            <h2 class="counter" data-target="350">0</h2><span>+</span>
+            <p>WEDDINGS CAPTURED</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <div class="stat-icon">🎖️</div>
+            <h2 class="counter" data-target="10">0</h2><span>+</span>
+            <p>YEARS OF EXPERIENCE</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <div class="stat-icon">🤍</div>
+            <h2 class="counter" data-target="50">0</h2><span>M+</span>
+            <p>MEMORIES PRESERVED</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <div class="stat-icon">🌿</div>
+            <h2 class="counter" data-target="100">0</h2><span>%</span>
+            <p>HEART BEHIND EVERY FRAME</p>
+        </div>
+    </section>
+
+    <!-- Philosophy & Masonry -->
+    <section id="testimonial" class="philosophy">
+        <div class="phil-left reveal">
+            <div class="phil-content">
+                <h2>Photography is not about how it looked.<br>It's about how it felt.</h2>
+                <p class="signature">Kumar</p>
+            </div>
+            <a href="#cta" class="btn btn-outline" style="align-self: flex-start;">LET'S TELL YOUR STORY</a>
+        </div>
+        
+        <div class="phil-right reveal category-card" data-category="Wedding">
+            <!-- Mini masonry for visual appeal -->
+            <div class="masonry">
+                <img src="Wedding/052A2596.JPG" class="masonry-img tall" alt="Gallery image">
+                <img src="Reception/0N3A6453.JPG" class="masonry-img" alt="Gallery image">
+                <img src="Haldhi/0N3A4056.JPG" class="masonry-img" alt="Gallery image">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta reveal">
+        <div class="cta-content">
+            <h2>Let's create memories<br><span class="hero-script">you'll cherish forever.</span></h2>
+            <a href="profile.html" class="btn btn-solid large" style="display:inline-block; text-decoration:none;">BOOK YOUR DATE</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-left logo">
+                <img src="Logo/logo.png" alt="KBN By Kumar Logo" class="brand-logo footer-logo">
+            </div>
+            <div class="footer-center">
+                 <p>&copy; 2026 KBN By Kumar. All rights reserved.</p>
+            </div>
+            <div class="footer-right">
+                <a href="#" aria-label="Instagram">IG</a>
+                <a href="#" aria-label="YouTube">YT</a>
+                <a href="#" aria-label="WhatsApp">WA</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal for Galleries -->
+    <div class="modal" id="galleryModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h2 id="modalCategoryTitle" class="modal-title">Category</h2>
+            <div class="modal-gallery" id="modalGallery">
+                <!-- Images will be injected here via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

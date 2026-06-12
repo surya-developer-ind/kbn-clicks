@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Date | KBN By Kumar</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { background-color: var(--primary-bg); }
+        .profile-section {
+            padding: 150px 5% 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            min-height: 100vh;
+        }
+        .profile-img-container {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+        .profile-img-container img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        .profile-img-container::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--accent-color);
+            border-radius: 10px;
+            z-index: -1;
+        }
+        .profile-info {
+            flex: 1;
+        }
+        .profile-info h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+        .profile-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 3px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            display: block;
+        }
+        .contact-details {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-item:hover { color: var(--accent-color); }
+        .contact-item span { font-weight: 600; min-width: 120px; }
+        
+        .social-links {
+            margin-top: 50px;
+            display: flex;
+            gap: 20px;
+        }
+        .social-btn {
+            padding: 12px 30px;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        .social-btn:hover {
+            background-color: var(--text-color);
+            color: #fff;
+        }
+        
+        @media (max-width: 900px) {
+            .profile-section {
+                flex-direction: column;
+                padding-top: 120px;
+                gap: 50px;
+                text-align: center;
+            }
+            .contact-item { justify-content: center; flex-direction: column; gap: 5px; }
+            .social-links { justify-content: center; }
+            .profile-img-container::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar" style="background: rgba(248, 245, 243, 0.95); backdrop-filter: blur(10px);">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="Logo/logo.png" alt="KBN By Kumar Logo" class="brand-logo" style="max-height: 80px;">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html#experiences">STORIES</a></li>
+                <li><a href="index.html#">FILMS</a></li>
+                <li><a href="index.html#testimonial">ABOUT</a></li>
+                <li><a href="index.html#footer">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="profile-section">
+        <div class="profile-img-container">
+            <img src="profile/IMG_20260612_123418.png" alt="Kumar Nallam">
+        </div>
+        
+        <div class="profile-info">
+            <h1>Kumar Nallam</h1>
+            <span class="profile-subtitle">Lead Photographer & Founder</span>
+            
+            <p>Every beautiful story deserves to be told with elegance and heart. Let's discuss your vision and reserve your date to create something timeless together.</p>
+            
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span>CALL US</span>
+                    <a href="tel:+916300092335" style="color: inherit; text-decoration: none;">+91 6300092335</a>, 
+                    <a href="tel:+917981115998" style="color: inherit; text-decoration: none;">+91 7981115998</a>
+                </div>
+                <div class="contact-item">
+                    <span>LOCATION</span>
+                    <p style="margin:0;">Bhimavaram, Andhra Pradesh</p>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/kbn_clicks?igsh=dGM2Y3R2aDkwcmc0" target="_blank" class="social-btn">INSTAGRAM</a>
+                <a href="https://www.youtube.com/@kbnclicks" target="_blank" class="social-btn">YOUTUBE</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

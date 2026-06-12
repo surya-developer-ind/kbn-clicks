@@ -1,0 +1,54 @@
+name: Generate Gallery Data
+
+on:
+  push:
+    paths:
+      - 'Landing/**'
+    branches:
+      - main
+      - master
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          
+      - name: Check commit author
+        id: check-author
+        run: |
+          if [[ "${{ github.event.head_commit.author.name }}" == "github-actions[bot]" ]]; then
+            echo "Author is github-actions[bot]. Skipping to prevent infinite loop."
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Setup Node.js
+        if: steps.check-author.outputs.skip != 'true'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Run gallery generator script
+        if: steps.check-author.outputs.skip != 'true'
+        run: node scripts/generate-gallery.js
+        
+      - name: Commit and Push changes
+        if: steps.check-author.outputs.skip != 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add gallery.json hero.json
+          
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to gallery.json or hero.json"
+          else
+            git commit -m "chore: auto-update gallery and hero json [skip ci]"
+            git push
+          fi

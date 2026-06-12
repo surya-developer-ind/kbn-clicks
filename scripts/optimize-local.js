@@ -41,4 +41,15 @@ async function optimizeImages(dir) {
     }
 }
 
-optimizeImages(LANDING_DIR).then(() => console.log('Done optimizing!')).catch(console.error);
+async function runOptimization() {
+    const categories = ['Landing', 'Baby', 'Engagement', 'Haldhi', 'PreWedding', 'Reception', 'Wedding'];
+    for (const category of categories) {
+        const categoryPath = path.join(__dirname, '..', category);
+        if (fs.existsSync(categoryPath)) {
+            console.log(`Checking category: ${category}`);
+            await optimizeImages(categoryPath);
+        }
+    }
+}
+
+runOptimization().then(() => console.log('Done optimizing!')).catch(console.error);

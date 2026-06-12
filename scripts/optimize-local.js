@@ -42,7 +42,13 @@ async function optimizeImages(dir) {
 }
 
 async function runOptimization() {
-    const categories = ['Landing', 'Baby', 'Engagement', 'Haldhi', 'PreWedding', 'Reception', 'Wedding'];
+    const EXCLUDED_DIRS = new Set(['.git', '.github', 'css', 'js', 'node_modules', 'scripts', 'profile', 'Logo']);
+    
+    // Find all category directories dynamically, including Landing
+    const categories = fs.readdirSync(path.join(__dirname, '..'), { withFileTypes: true })
+        .filter(dirent => dirent.isDirectory() && !EXCLUDED_DIRS.has(dirent.name))
+        .map(dirent => dirent.name);
+
     for (const category of categories) {
         const categoryPath = path.join(__dirname, '..', category);
         if (fs.existsSync(categoryPath)) {

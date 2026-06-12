@@ -3,13 +3,14 @@ name: Generate Gallery Data
 on:
   push:
     paths:
-      - 'Landing/**'
-      - 'Baby/**'
-      - 'Engagement/**'
-      - 'Haldhi/**'
-      - 'PreWedding/**'
-      - 'Reception/**'
-      - 'Wedding/**'
+      - '**/*.jpg'
+      - '**/*.jpeg'
+      - '**/*.png'
+      - '**/*.webp'
+      - '**/*.JPG'
+      - '**/*.JPEG'
+      - '**/*.PNG'
+      - '**/*.WEBP'
     branches:
       - main
       - master
@@ -58,7 +59,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add Landing/ Baby/ Engagement/ Haldhi/ PreWedding/ Reception/ Wedding/ gallery.json hero.json
+          git add -A
           
           # Only commit if there are changes
           if git diff --staged --quiet; then

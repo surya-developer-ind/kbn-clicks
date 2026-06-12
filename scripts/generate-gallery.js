@@ -25,7 +25,12 @@ const heroData = {
     mobile: []
 };
 
-const GALLERY_CATEGORIES = ['Baby', 'Engagement', 'Haldhi', 'PreWedding', 'Reception', 'Wedding'];
+const EXCLUDED_DIRS = new Set(['.git', '.github', 'css', 'js', 'node_modules', 'scripts', 'Landing', 'profile', 'Logo']);
+
+// Find all category directories dynamically
+const GALLERY_CATEGORIES = fs.readdirSync(path.join(__dirname, '..'), { withFileTypes: true })
+    .filter(dirent => dirent.isDirectory() && !EXCLUDED_DIRS.has(dirent.name))
+    .map(dirent => dirent.name);
 
 // Handle Hero specifically (inside Landing/)
 const heroCategoryPath = path.join(LANDING_DIR, 'Hero');

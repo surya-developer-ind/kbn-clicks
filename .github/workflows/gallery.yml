@@ -25,14 +25,19 @@ jobs:
             echo "Author is github-actions[bot]. Skipping to prevent infinite loop."
             echo "skip=true" >> $GITHUB_OUTPUT
           else
-            echo "skip=false" >> $GITHUB_OUTPUT
-          fi
+      - name: Setup Node.js
+        if: steps.check-author.outputs.skip != 'true'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
           
       - name: Optimize large images
         if: steps.check-author.outputs.skip != 'true'
         run: |
-          echo "Compressing images larger than 2MB..."
-          find Landing/ -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png \) -size +2M -exec mogrify -resize "1920x1920>" -quality 85 {} +
+          echo "Installing sharp for image compression..."
+          npm install sharp
+          echo "Compressing images larger than 1.5MB..."
+          node scripts/optimize-local.js
           echo "Image optimization complete."
 
       - name: Setup Node.js

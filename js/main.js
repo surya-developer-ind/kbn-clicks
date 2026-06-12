@@ -37,22 +37,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             heroSlider.appendChild(img);
         });
 
-        // Hide Preloader once first image is loaded
+        // Hide Preloader once first image is loaded (with minimum delay to read text)
         const preloader = document.getElementById('preloader');
         if (preloader) {
+            const hidePreloader = () => setTimeout(() => preloader.classList.add('loaded'), 2500);
+
             const firstImg = heroSlider.querySelector('img.active');
             if (firstImg) {
                 if (firstImg.complete) {
-                    preloader.classList.add('loaded');
+                    hidePreloader();
                 } else {
-                    firstImg.addEventListener('load', () => {
-                        preloader.classList.add('loaded');
-                    });
+                    firstImg.addEventListener('load', hidePreloader);
                     // Fallback if image fails or takes too long
                     setTimeout(() => preloader.classList.add('loaded'), 6000);
                 }
             } else {
-                preloader.classList.add('loaded');
+                hidePreloader();
             }
         }
 

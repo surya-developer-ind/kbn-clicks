@@ -58,9 +58,26 @@ body {
     background-color: var(--primary-bg);
     z-index: 9999;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.preloader-text {
+    margin-top: 25px;
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--text-color);
+    text-align: center;
+    letter-spacing: 2px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
 }
 
 #preloader.loaded {

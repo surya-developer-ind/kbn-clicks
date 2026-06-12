@@ -932,6 +932,26 @@ footer {
         gap: 30px;
         text-align: center;
     }
+
+    /* Make modal gallery scrollable 1-by-1 on mobile */
+    .modal-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .modal-gallery img {
+        height: auto;
+        max-height: 80vh;
+        object-fit: contain;
+    }
+
+    .modal-gallery > div.wide,
+    .modal-gallery > div.tall,
+    .modal-gallery > div.large {
+        grid-column: auto;
+        grid-row: auto;
+    }
 }
 
 @media (max-width: 390px) {
